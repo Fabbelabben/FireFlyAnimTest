@@ -50,12 +50,6 @@ void Animation::setPosition(const sf::Vector2f& position) {
 mSprite.setPosition(position);
 }
 
-void Animation::resetAnimation(){
-mCurrentSprite= 0;
-mCurrentFrame = 0;
-mSpriteRow = 0;
-}
-
 void Animation::updateAnimation()
 {
 	unsigned int left = mSpriteWidth * mCurrentSprite;
@@ -65,12 +59,15 @@ void Animation::updateAnimation()
 	if( mCurrentFrame >= mFramesPerSprite )
 	{
 		++mCurrentSprite;
+		mCurrentFrame = 0;
 		if(mCurrentSprite == mNumberOfSprites )
 		{
-			top++;
+			++top;
+			mCurrentSprite = 0;
+			mCurrentFrame = 0;
 			if(top == mSpriteRow)
-				top == 0;
-				mCurrentSprite = 0;
+			{
+				top = 0;
 				resetAnimation();
 //				mEndOfAnimation = true;
 			}
@@ -78,10 +75,17 @@ void Animation::updateAnimation()
 //			{
 //				mEndOfAnimation = false;
 		}
-		mCurrentFrame = 0;
+		
 	}
 }
-	
+
+void Animation::resetAnimation(){
+	mCurrentSprite= 0;
+	mCurrentFrame = 0;
+	mNumberOfSprites = 0;
+}
+
+
 bool Animation::endOfAnimation() const{
 	return mEndOfAnimation;
 }
