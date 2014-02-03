@@ -48,5 +48,5 @@ void Loading::loadLevel0()
 
 	// Textures
 	mTextureHolder.load(Textures::Zid, "Resources/explosionAnim.png");
-	mTextureHolder.load(Textures::Moth, "Resources/zid.png");
+	mTextureHolder.load(Textures::Moth, "Resources/mal.png");
 }

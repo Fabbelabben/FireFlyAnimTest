@@ -6,7 +6,7 @@ GameLoop GameLoop::gameloop;
 const sf::Time GameLoop::TimePerFrame = sf::seconds(1.f/60.f);
 
 GameLoop::GameLoop()
-	: mWindow(sf::VideoMode(800, 600), "FireFly", sf::Style::Default),
+	: mWindow(sf::VideoMode(1366, 768), "FireFly", sf::Style::Default),
 	mFont(),
 	mStatisticsText(),
 	mStatisticsUpdateTime(),

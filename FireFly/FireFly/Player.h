@@ -10,6 +10,7 @@ public:
 	void updateEntity(sf:: Time timePerFrame);
 	void drawEntity(sf::RenderWindow *window);
 private:
+	Animation plyr;
 	float moveSpeed;
 	sf::Listener playerListener;
 };

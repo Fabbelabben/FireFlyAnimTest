@@ -69,14 +69,13 @@ void Animation::updateAnimation()
 			{
 				top = 0;
 				resetAnimation();
-//				mEndOfAnimation = true;
 			}
+//				mEndOfAnimation = true;
+		}
 //			else
 //			{
 //				mEndOfAnimation = false;
-		}
-		
-	}
+	}		
 }
 
 void Animation::resetAnimation(){

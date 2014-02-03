@@ -2,6 +2,7 @@
 
 
 Player::Player(float positionX, float positionY)
+	: plyr(Textures::Zid, 64, 64, 5, 3, 5, 32, 32)
 {
 	moveSpeed = 4;
 	mRectangle.height = 64;
@@ -11,7 +12,7 @@ Player::Player(float positionX, float positionY)
 	mAliveStatus = true;
 	mID = "player";
 	
-	Animation(Textures::Zid, 64, 64, 5, 3, 5, 32, 32);
+//	Animation plyr(Textures::Zid, 64, 64, 5, 3, 5, 32, 32);
 	
 }
 
@@ -42,11 +43,14 @@ void Player::updateEntity(sf:: Time timePerFrame)
 		mPosition.y += moveSpeed;
 	}
 
+	plyr.updateAnimation();
+	plyr.setPosition(mPosition);
 	playerListener.setPosition(mPosition.x, mPosition.y, 1);
-	mSprite.setPosition(mPosition);
+//	mSprite.setPosition(mPosition);
 }
 
 void Player::drawEntity(sf::RenderWindow *window)
 {
-	window->draw(mSprite);
+//	window->draw(mSprite);
+	window->draw(plyr.getCurrentSprite());
 }
